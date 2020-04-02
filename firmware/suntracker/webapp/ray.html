@@ -10,49 +10,19 @@
 {% block tab_panes %}
     <div role="tabpanel" class="tab-pane fade in active" id="lamp">
 
-      <h1>Current lamp values</h1>
+      <h1>Ray angles</h1>
 
       <div class="form-group">
-          <label class="col-sm-3 control-label">CH0</label>
+          <label for="ray_zenith" class="col-sm-3 control-label">Ray Zenith</label>
           <div class="col-sm-7">
-              <div id="ch0_slider"></div>
+              <input class="form-control" name="ray_zenith" value=''>
           </div>
       </div>
 
       <div class="form-group">
-          <label class="col-sm-3 control-label">CH1</label>
+          <label for="ray_azimuth" class="col-sm-3 control-label">Ray Azimuth</label>
           <div class="col-sm-7">
-              <div id="ch1_slider"></div>
-          </div>
-      </div>
-
-      <div class="form-group">
-          <label class="col-sm-3 control-label">CH2</label>
-          <div class="col-sm-7">
-              <div id="ch2_slider"></div>
-          </div>
-      </div>
-
-      <h1>Lamp startup settings (0-100 or empty to get it from net)</h1>
-
-      <div class="form-group">
-          <label for="startup_val_l0" class="col-sm-3 control-label">Channel 0</label>
-          <div class="col-sm-7">
-              <input class="form-control" name="startup_val_l0" value=''>
-          </div>
-      </div>
-
-      <div class="form-group">
-          <label for="startup_val_l1" class="col-sm-3 control-label">Channel 1</label>
-          <div class="col-sm-7">
-              <input class="form-control" name="startup_val_l1" value=''>
-          </div>
-      </div>
-
-      <div class="form-group">
-          <label for="startup_val_l2" class="col-sm-3 control-label">Channel 2</label>
-          <div class="col-sm-7">
-              <input class="form-control" name="startup_val_l2" value=''>
+              <input class="form-control" name="ray_azimuth" value=''>
           </div>
       </div>
 

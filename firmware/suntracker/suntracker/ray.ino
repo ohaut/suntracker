@@ -46,7 +46,7 @@ void setup(void){
         }
     };
 
-    ohaut.setup(DEVICE_TYPE, VERSION, "sun");
+    ohaut.setup(DEVICE_TYPE, VERSION, "suntracker");
     motors.enable();
 }
 
@@ -58,12 +58,3 @@ void loop(void){
 
 }
 
-float getDimmerStartupVal(ConfigMap *configData, int dimmer) {
-    char key[16];
-    const char *val;
-    sprintf(key, "startup_val_l%d", dimmer);
-    val = (*configData)[key];
-
-    if (val && strlen(val)) return atoi(val)/100.0;
-    else                    return 1.0;
-}
