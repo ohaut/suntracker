@@ -3,58 +3,44 @@
 
 ESP8266WebServer *web_server;
 
-void handleSetLed() {
+extern StepMotors motors;
 
-    int ch , val;
-    char* str_ch = strdup(web_server->arg("ch").c_str());
-    char* str_val = strdup(web_server->arg("val").c_str());
+void handleStepMotor() {
 
-    if (!strlen(str_val)) { /* we asume no ch means all channels */
-      web_server->send(422, "application/json", "{\"result\": \"1\", \"message:\": "
-                                            "\"val parameter missing on URL\"}");
-      goto _exit;
-    }
-    ch = atoi(str_ch);
-    val = atoi(str_val);
+    int m, d, s;
+    char* str_m = strdup(web_server->arg("m").c_str());
+    char* str_s = strdup(web_server->arg("s").c_str());
 
-    if (ch<0 || ch>=3) {
+    m = atoi(str_m);
+    s = strlen(str_s)?atoi(str_s):1;
+
+    if (m<0 || m>1) {
       web_server->send(422, "application/json", "{\"result\": \"2\", \"message:\": "
-                                            "\"ch out of range (0..2)\"}");
+                                            "\"m out of range (0..1)\"}");
       goto _exit;
     }
 
-    if (val<0 || val>100) {
-      web_server->send(422,  "application/json", "{\"result\": \"3\", \"message:\": "
-                                            "\"val out of range (0..100)\"}");
-      goto _exit;
+    if (s<-500 || s>500) {
+        web_server->send(422,  "application/json", "{\"result\": \"4\", \"message:\": "
+                                            "\"s out of range (1..500)\"}");
+        goto _exit;
     }
+    d = s>0 ? 1:0;
+    s = s>0 ? s:-s;
 
-    if (strlen(str_ch))
-      setDimmerAndPublish(ch, val);
-    else {
-      for (ch=0; ch<N_DIMMERS; ch++)
-        setDimmerAndPublish(ch, val);
-    }
+    motors.steps(m,d,s);
+
+   
     web_server->send(200, "application/json", "{\"result\": \"0\", \"message:\": "
-                                          "\"channel set correctly\"}");
+                                          "\"stepped correctly\"}");
  _exit:
-    free (str_ch);
-    free (str_val);
+    free (str_m);
+    free (str_s);
 }
 
-void handleGetLeds() {
-  char result[128];
-  sprintf(result, "{\"ch0\": \"%d\","
-                   "\"ch1\": \"%d\","
-                   "\"ch2\": \"%d\"}",
-                   (int)(dimmers.getDimmer(0)*100.0),
-                   (int)(dimmers.getDimmer(1)*100.0),
-                   (int)(dimmers.getDimmer(2)*100.0));
-  web_server->send(200, "application/json", result);
-}
 
 void setupHTTPApi(ESP8266WebServer *server) {
   web_server = server;
-  server->on("/setLed", HTTP_GET,  handleSetLed);
-  server->on("/getLeds", HTTP_GET, handleGetLeds);
+  server->on("/step", HTTP_GET,  handleStepMotor);
+
 }

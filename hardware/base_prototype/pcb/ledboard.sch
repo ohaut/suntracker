@@ -1,37 +1,6 @@
-EESchema Schematic File Version 2
-LIBS:power
-LIBS:device
-LIBS:transistors
-LIBS:conn
-LIBS:linear
-LIBS:regul
-LIBS:74xx
-LIBS:cmos4000
-LIBS:adc-dac
-LIBS:memory
-LIBS:xilinx
-LIBS:microcontrollers
-LIBS:dsp
-LIBS:microchip
-LIBS:analog_switches
-LIBS:motorola
-LIBS:texas
-LIBS:intel
-LIBS:audio
-LIBS:interface
-LIBS:digital-audio
-LIBS:philips
-LIBS:display
-LIBS:cypress
-LIBS:siliconi
-LIBS:opto
-LIBS:atmel
-LIBS:contrib
-LIBS:valves
-LIBS:components
-LIBS:ESP8266
+EESchema Schematic File Version 4
 LIBS:ledboard-cache
-EELAYER 25 0
+EELAYER 26 0
 EELAYER END
 $Descr A4 11693 8268
 encoding utf-8
@@ -46,7 +15,7 @@ Comment3 "+(34)636522569"
 Comment4 "This is open source hardware"
 $EndDescr
 $Comp
-L +12V #PWR01
+L power:+12V #PWR01
 U 1 1 4FB27186
 P 1600 1350
 F 0 "#PWR01" H 1600 1300 20  0001 C CNN
@@ -57,7 +26,7 @@ F 3 "" H 1600 1350 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L AGND #PWR02
+L ledboard-rescue:AGND #PWR02
 U 1 1 4FB270D7
 P 1600 1950
 F 0 "#PWR02" H 1600 1950 40  0001 C CNN
@@ -68,7 +37,7 @@ F 3 "" H 1600 1950 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CONN_2 P1
+L ledboard-rescue:CONN_2 P1
 U 1 1 4FB270D1
 P 2000 7300
 F 0 "P1" V 1950 7300 40  0000 C CNN
@@ -79,7 +48,7 @@ F 3 "" H 2000 7300 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L MHOLE Z2
+L components:MHOLE Z2
 U 1 1 516537DC
 P 6000 1300
 F 0 "Z2" H 5800 1350 60  0000 C CNN
@@ -97,7 +66,7 @@ F 9 "NOT_ASSEMBLE - NOT_ASSEMBLE" H 6000 1300 60  0001 C CNN "Fast Supplier Code
 $EndComp
 NoConn ~ 6200 1300
 $Comp
-L MHOLE Z3
+L components:MHOLE Z3
 U 1 1 51653832
 P 6000 1500
 F 0 "Z3" H 5800 1550 60  0000 C CNN
@@ -115,7 +84,7 @@ F 9 "NOT_ASSEMBLE - NOT_ASSEMBLE" H 6000 1500 60  0001 C CNN "Fast Supplier Code
 $EndComp
 NoConn ~ 6200 1500
 $Comp
-L MHOLE Z4
+L components:MHOLE Z4
 U 1 1 51653840
 P 6000 1700
 F 0 "Z4" H 5800 1750 60  0000 C CNN
@@ -133,7 +102,7 @@ F 9 "NOT_ASSEMBLE - NOT_ASSEMBLE" H 6000 1700 60  0001 C CNN "Fast Supplier Code
 $EndComp
 NoConn ~ 6200 1700
 $Comp
-L MHOLE Z1
+L components:MHOLE Z1
 U 1 1 55EB93A2
 P 6000 1100
 F 0 "Z1" H 5800 1150 60  0000 C CNN
@@ -151,7 +120,7 @@ F 9 "NOT_ASSEMBLE - NOT_ASSEMBLE" H 6000 1100 60  0001 C CNN "Fast Supplier Code
 $EndComp
 NoConn ~ 6200 1100
 $Comp
-L ESP-12E U2
+L ESP8266:ESP-12E U2
 U 1 1 55EBB626
 P 3450 4350
 F 0 "U2" H 3450 4250 50  0000 C CNN
@@ -162,7 +131,7 @@ F 3 "" H 3450 4350 50  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L +3.3V #PWR03
+L power:+3.3V #PWR03
 U 1 1 55EBBB15
 P 4700 3400
 F 0 "#PWR03" H 4700 3360 30  0001 C CNN
@@ -173,7 +142,7 @@ F 3 "" H 4700 3400 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CONN_01X03 P4
+L ledboard-rescue:CONN_01X03 P4
 U 1 1 55EBC588
 P 7650 1450
 F 0 "P4" H 7650 1650 50  0000 C CNN
@@ -184,7 +153,7 @@ F 3 "" H 7650 1450 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +12V #PWR04
+L power:+12V #PWR04
 U 1 1 55EBC741
 P 7250 1350
 F 0 "#PWR04" H 7250 1300 20  0001 C CNN
@@ -195,7 +164,7 @@ F 3 "" H 7250 1350 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L AGND #PWR05
+L ledboard-rescue:AGND #PWR05
 U 1 1 55EBC89A
 P 7250 1650
 F 0 "#PWR05" H 7250 1650 40  0001 C CNN
@@ -208,7 +177,7 @@ $EndComp
 Text Label 6850 1450 0    60   ~ 0
 _PIR_MOTION
 $Comp
-L R R14
+L Device:R R14
 U 1 1 55EBCFF3
 P 5750 3900
 F 0 "R14" V 5850 3900 50  0000 C CNN
@@ -219,7 +188,7 @@ F 3 "" H 5750 3900 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3.3V #PWR06
+L power:+3.3V #PWR06
 U 1 1 55EBD530
 P 5750 3350
 F 0 "#PWR06" H 5750 3310 30  0001 C CNN
@@ -230,7 +199,7 @@ F 3 "" H 5750 3350 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R5
+L Device:R R5
 U 1 1 55EBD936
 P 1700 4050
 F 0 "R5" V 1750 4200 50  0000 C CNN
@@ -241,7 +210,7 @@ F 3 "" H 1700 4050 60  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L AGND #PWR07
+L ledboard-rescue:AGND #PWR07
 U 1 1 55EBDA03
 P 1200 4050
 F 0 "#PWR07" H 1200 4050 40  0001 C CNN
@@ -252,7 +221,7 @@ F 3 "" H 1200 4050 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L AGND #PWR08
+L ledboard-rescue:AGND #PWR08
 U 1 1 55EBDAA8
 P 1050 3950
 F 0 "#PWR08" H 1050 3950 40  0001 C CNN
@@ -263,7 +232,7 @@ F 3 "" H 1050 3950 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R4
+L Device:R R4
 U 1 1 55EBDBD6
 P 1400 4150
 F 0 "R4" V 1450 4300 50  0000 C CNN
@@ -274,7 +243,7 @@ F 3 "" H 1400 4150 60  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L +3.3V #PWR09
+L power:+3.3V #PWR09
 U 1 1 55EBDD98
 P 1050 4150
 F 0 "#PWR09" H 1050 4110 30  0001 C CNN
@@ -291,7 +260,7 @@ TXD
 Text Label 1200 4550 0    60   ~ 0
 RXD
 $Comp
-L R R8
+L Device:R R8
 U 1 1 55EBE041
 P 2050 4650
 F 0 "R8" V 2100 4800 50  0000 C CNN
@@ -302,7 +271,7 @@ F 3 "" H 2050 4650 60  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L R R7
+L Device:R R7
 U 1 1 55EBE15B
 P 1700 4550
 F 0 "R7" V 1750 4700 50  0000 C CNN
@@ -315,7 +284,7 @@ $EndComp
 Text Label 4450 4650 0    60   ~ 0
 nRESET
 $Comp
-L R R10
+L Device:R R10
 U 1 1 55EBE85D
 P 4650 4850
 F 0 "R10" V 4550 4850 50  0000 C CNN
@@ -328,7 +297,7 @@ $EndComp
 Text Label 4450 4350 0    60   ~ 0
 WAKEUP_RST
 $Comp
-L C_Small C6
+L Device:C_Small C6
 U 1 1 55EBF214
 P 4800 3550
 F 0 "C6" H 4810 3620 50  0000 L CNN
@@ -339,7 +308,7 @@ F 3 "" H 4800 3550 60  0000 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L AGND #PWR010
+L ledboard-rescue:AGND #PWR010
 U 1 1 55EBF55D
 P 4950 3550
 F 0 "#PWR010" H 4950 3550 40  0001 C CNN
@@ -350,7 +319,7 @@ F 3 "" H 4950 3550 60  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L R R6
+L Device:R R6
 U 1 1 55EBFC14
 P 1700 4250
 F 0 "R6" V 1750 4400 50  0000 C CNN
@@ -375,7 +344,7 @@ CHIP_ENABLE
 Text Label 4450 4550 0    60   ~ 0
 VIN_DIV
 $Comp
-L +3.3V #PWR011
+L power:+3.3V #PWR011
 U 1 1 55EC13EE
 P 5250 5100
 F 0 "#PWR011" H 5250 5060 30  0001 C CNN
@@ -386,7 +355,7 @@ F 3 "" H 5250 5100 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L R R11
+L Device:R R11
 U 1 1 55EC148E
 P 4650 5100
 F 0 "R11" V 4550 5100 50  0000 C CNN
@@ -397,7 +366,7 @@ F 3 "" H 4650 5100 60  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L LED D4
+L ledboard-rescue:LED D4
 U 1 1 55EB6951
 P 5300 3550
 F 0 "D4" H 5300 3650 50  0000 C CNN
@@ -408,7 +377,7 @@ F 3 "" H 5300 3550 60  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L +3.3V #PWR012
+L power:+3.3V #PWR012
 U 1 1 55EB69BF
 P 5300 3350
 F 0 "#PWR012" H 5300 3310 30  0001 C CNN
@@ -419,7 +388,7 @@ F 3 "" H 5300 3350 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R12
+L Device:R R12
 U 1 1 55EB6A06
 P 5300 3900
 F 0 "R12" V 5400 3900 50  0000 C CNN
@@ -432,7 +401,7 @@ $EndComp
 Text Label 4450 4050 0    60   ~ 0
 nLED
 $Comp
-L R R13
+L Device:R R13
 U 1 1 55EB6F42
 P 5550 3900
 F 0 "R13" V 5650 3900 50  0000 C CNN
@@ -443,7 +412,7 @@ F 3 "" H 5550 3900 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3.3V #PWR013
+L power:+3.3V #PWR013
 U 1 1 55EB70E6
 P 5550 3350
 F 0 "#PWR013" H 5550 3310 30  0001 C CNN
@@ -466,7 +435,7 @@ _FLASH
 Text Label 1950 4350 0    60   ~ 0
 PIR_MOTION
 $Comp
-L BARREL_JACK CON1
+L ledboard-rescue:BARREL_JACK CON1
 U 1 1 55EB9C44
 P 1300 2350
 F 0 "CON1" H 1300 2600 60  0000 C CNN
@@ -477,7 +446,7 @@ F 3 "" H 1300 2350 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L AGND #PWR014
+L ledboard-rescue:AGND #PWR014
 U 1 1 55EB9EB5
 P 1700 2500
 F 0 "#PWR014" H 1700 2500 40  0001 C CNN
@@ -488,7 +457,7 @@ F 3 "" H 1700 2500 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +12V #PWR015
+L power:+12V #PWR015
 U 1 1 55EB9F02
 P 1700 2250
 F 0 "#PWR015" H 1700 2200 20  0001 C CNN
@@ -501,7 +470,7 @@ $EndComp
 Text Notes 800  900  0    60   ~ 0
 5V to 14V input
 $Comp
-L CONN_01X05 P3
+L ledboard-rescue:CONN_01X05 P3
 U 1 1 55EBAD02
 P 1250 5500
 F 0 "P3" H 1250 5800 50  0000 C CNN
@@ -518,7 +487,7 @@ PIR SENSOR
 Text Notes 5100 5900 0    60   ~ 0
 WIFI/MICROPROCESSOR
 $Comp
-L SW_PUSH SW1
+L ledboard-rescue:SW_PUSH SW1
 U 1 1 55EBBD43
 P 2000 6600
 F 0 "SW1" H 2150 6710 50  0000 C CNN
@@ -529,7 +498,7 @@ F 3 "" H 2000 6600 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L AGND #PWR016
+L ledboard-rescue:AGND #PWR016
 U 1 1 55EBC023
 P 1150 7300
 F 0 "#PWR016" H 1150 7300 40  0001 C CNN
@@ -542,7 +511,7 @@ $EndComp
 Text Label 2950 6600 0    60   ~ 0
 nPUSHBUTTON
 $Comp
-L R R9
+L Device:R R9
 U 1 1 55EBC6F1
 P 2650 6600
 F 0 "R9" V 2750 6600 50  0000 C CNN
@@ -555,7 +524,7 @@ $EndComp
 Text Notes 3200 7550 0    60   ~ 0
 PUSH BUTTON
 $Comp
-L CONN_2 P2
+L ledboard-rescue:CONN_2 P2
 U 1 1 55EBD0FF
 P 1150 1650
 F 0 "P2" V 1100 1650 40  0000 C CNN
@@ -566,7 +535,7 @@ F 3 "" H 1150 1650 60  0001 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L CONN_01X03 P5
+L ledboard-rescue:CONN_01X03 P5
 U 1 1 55EBE0FD
 P 9200 1450
 F 0 "P5" H 9200 1650 50  0000 C CNN
@@ -577,7 +546,7 @@ F 3 "" H 9200 1450 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L AGND #PWR017
+L ledboard-rescue:AGND #PWR017
 U 1 1 55EBEA4E
 P 9000 1650
 F 0 "#PWR017" H 9000 1650 40  0001 C CNN
@@ -590,7 +559,7 @@ $EndComp
 Text Label 8200 1450 0    60   ~ 0
 _WS2812B_DO
 $Comp
-L +12V #PWR018
+L power:+12V #PWR018
 U 1 1 55EBEFD2
 P 9000 1150
 F 0 "#PWR018" H 9000 1100 20  0001 C CNN
@@ -605,7 +574,7 @@ ADDRESSABLE LED STRIP\n5V INPUT ONLY
 Text Label 7750 2750 0    60   ~ 0
 PWM_DIMMER1
 $Comp
-L IRF540N Q1
+L ledboard-rescue:IRF540N Q1
 U 1 1 55EC6532
 P 9450 2700
 F 0 "Q1" H 9300 2850 50  0000 L CNN
@@ -616,7 +585,7 @@ F 3 "" H 9450 2700 50  0000 L CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R16
+L Device:R R16
 U 1 1 55EC6761
 P 8900 2750
 F 0 "R16" V 9000 2750 50  0000 C CNN
@@ -627,7 +596,7 @@ F 3 "" H 8900 2750 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L AGND #PWR019
+L ledboard-rescue:AGND #PWR019
 U 1 1 55EC6CFE
 P 9550 3000
 F 0 "#PWR019" H 9550 3000 40  0001 C CNN
@@ -638,7 +607,7 @@ F 3 "" H 9550 3000 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CONN_2 P6
+L ledboard-rescue:CONN_2 P6
 U 1 1 55EC7051
 P 10250 3000
 F 0 "P6" V 10200 3000 40  0000 C CNN
@@ -649,7 +618,7 @@ F 3 "" H 10250 3000 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L +12V #PWR020
+L power:+12V #PWR020
 U 1 1 55EC7299
 P 10350 2650
 F 0 "#PWR020" H 10350 2600 20  0001 C CNN
@@ -660,7 +629,7 @@ F 3 "" H 10350 2650 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C13
+L Device:C_Small C13
 U 1 1 55EC7930
 P 10250 2650
 F 0 "C13" V 10250 2450 50  0000 L CNN
@@ -675,7 +644,7 @@ PWM_DIMMER2
 Text Label 1900 4050 0    60   ~ 0
 PWM_DIMMER3
 $Comp
-L R R15
+L Device:R R15
 U 1 1 55EC3F01
 P 6850 1900
 F 0 "R15" V 6950 1900 50  0000 C CNN
@@ -688,7 +657,7 @@ $EndComp
 Text Label 7100 1900 0    60   ~ 0
 PIR_MOTION
 $Comp
-L AGND #PWR021
+L ledboard-rescue:AGND #PWR021
 U 1 1 55EC658D
 P 6550 3300
 F 0 "#PWR021" H 6550 3300 40  0001 C CNN
@@ -699,7 +668,7 @@ F 3 "" H 6550 3300 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L +12V #PWR022
+L power:+12V #PWR022
 U 1 1 55EC7002
 P 6750 2750
 F 0 "#PWR022" H 6750 2700 20  0001 C CNN
@@ -710,7 +679,7 @@ F 3 "" H 6750 2750 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L AGND #PWR023
+L ledboard-rescue:AGND #PWR023
 U 1 1 55EC7138
 P 6750 3100
 F 0 "#PWR023" H 6750 3100 40  0001 C CNN
@@ -721,7 +690,7 @@ F 3 "" H 6750 3100 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L AGND #PWR024
+L ledboard-rescue:AGND #PWR024
 U 1 1 55EC7203
 P 7050 3100
 F 0 "#PWR024" H 7050 3100 40  0001 C CNN
@@ -732,7 +701,7 @@ F 3 "" H 7050 3100 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C10
+L Device:C_Small C10
 U 1 1 55EC74AE
 P 7050 2900
 F 0 "C10" H 7060 2970 50  0000 L CNN
@@ -743,7 +712,7 @@ F 3 "" H 7050 2900 60  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L C_Small C7
+L Device:C_Small C7
 U 1 1 55EC756E
 P 6750 2900
 F 0 "C7" H 6900 3000 50  0000 L CNN
@@ -754,7 +723,7 @@ F 3 "" H 6750 2900 60  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L FAN3100TSX U3
+L ledboard-rescue:FAN3100TSX U3
 U 1 1 55EC8D8C
 P 7800 3550
 F 0 "U3" H 7650 3600 60  0000 C CNN
@@ -769,7 +738,7 @@ _PWM_DIMMER1
 Text Label 6700 3400 0    60   ~ 0
 PWM_DIMMER1
 $Comp
-L AGND #PWR025
+L ledboard-rescue:AGND #PWR025
 U 1 1 55EC99D7
 P 8450 3400
 F 0 "#PWR025" H 8450 3400 40  0001 C CNN
@@ -782,7 +751,7 @@ $EndComp
 Text Label 7750 3950 0    60   ~ 0
 PWM_DIMMER2
 $Comp
-L IRF540N Q2
+L ledboard-rescue:IRF540N Q2
 U 1 1 55ECD53C
 P 9450 3900
 F 0 "Q2" H 9300 4050 50  0000 L CNN
@@ -793,7 +762,7 @@ F 3 "" H 9450 3900 50  0000 L CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R17
+L Device:R R17
 U 1 1 55ECD542
 P 8900 3950
 F 0 "R17" V 9000 3950 50  0000 C CNN
@@ -804,7 +773,7 @@ F 3 "" H 8900 3950 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L AGND #PWR026
+L ledboard-rescue:AGND #PWR026
 U 1 1 55ECD548
 P 9550 4200
 F 0 "#PWR026" H 9550 4200 40  0001 C CNN
@@ -815,7 +784,7 @@ F 3 "" H 9550 4200 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CONN_2 P7
+L ledboard-rescue:CONN_2 P7
 U 1 1 55ECD54E
 P 10250 4200
 F 0 "P7" V 10200 4200 40  0000 C CNN
@@ -826,7 +795,7 @@ F 3 "" H 10250 4200 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L +12V #PWR027
+L power:+12V #PWR027
 U 1 1 55ECD554
 P 10350 3850
 F 0 "#PWR027" H 10350 3800 20  0001 C CNN
@@ -837,7 +806,7 @@ F 3 "" H 10350 3850 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C14
+L Device:C_Small C14
 U 1 1 55ECD55A
 P 10250 3850
 F 0 "C14" V 10250 3650 50  0000 L CNN
@@ -848,7 +817,7 @@ F 3 "" H 10250 3850 60  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L AGND #PWR028
+L ledboard-rescue:AGND #PWR028
 U 1 1 55ECD560
 P 6550 4500
 F 0 "#PWR028" H 6550 4500 40  0001 C CNN
@@ -859,7 +828,7 @@ F 3 "" H 6550 4500 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L +12V #PWR029
+L power:+12V #PWR029
 U 1 1 55ECD566
 P 6750 3950
 F 0 "#PWR029" H 6750 3900 20  0001 C CNN
@@ -870,7 +839,7 @@ F 3 "" H 6750 3950 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L AGND #PWR030
+L ledboard-rescue:AGND #PWR030
 U 1 1 55ECD56C
 P 6750 4300
 F 0 "#PWR030" H 6750 4300 40  0001 C CNN
@@ -881,7 +850,7 @@ F 3 "" H 6750 4300 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L AGND #PWR031
+L ledboard-rescue:AGND #PWR031
 U 1 1 55ECD572
 P 7050 4300
 F 0 "#PWR031" H 7050 4300 40  0001 C CNN
@@ -892,7 +861,7 @@ F 3 "" H 7050 4300 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C11
+L Device:C_Small C11
 U 1 1 55ECD578
 P 7050 4100
 F 0 "C11" H 7060 4170 50  0000 L CNN
@@ -903,7 +872,7 @@ F 3 "" H 7050 4100 60  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L C_Small C8
+L Device:C_Small C8
 U 1 1 55ECD57E
 P 6750 4100
 F 0 "C8" H 6900 4200 50  0000 L CNN
@@ -914,7 +883,7 @@ F 3 "" H 6750 4100 60  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L FAN3100TSX U4
+L ledboard-rescue:FAN3100TSX U4
 U 1 1 55ECD584
 P 7800 4750
 F 0 "U4" H 7650 4800 60  0000 C CNN
@@ -929,7 +898,7 @@ _PWM_DIMMER2
 Text Label 6700 4600 0    60   ~ 0
 PWM_DIMMER2
 $Comp
-L AGND #PWR032
+L ledboard-rescue:AGND #PWR032
 U 1 1 55ECD58C
 P 8450 4600
 F 0 "#PWR032" H 8450 4600 40  0001 C CNN
@@ -942,7 +911,7 @@ $EndComp
 Text Label 7750 5200 0    60   ~ 0
 PWM_DIMMER3
 $Comp
-L IRF540N Q3
+L ledboard-rescue:IRF540N Q3
 U 1 1 55ECD90B
 P 9450 5150
 F 0 "Q3" H 9300 5300 50  0000 L CNN
@@ -953,7 +922,7 @@ F 3 "" H 9450 5150 50  0000 L CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R18
+L Device:R R18
 U 1 1 55ECD911
 P 8900 5200
 F 0 "R18" V 9000 5200 50  0000 C CNN
@@ -964,7 +933,7 @@ F 3 "" H 8900 5200 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L AGND #PWR033
+L ledboard-rescue:AGND #PWR033
 U 1 1 55ECD917
 P 9550 5450
 F 0 "#PWR033" H 9550 5450 40  0001 C CNN
@@ -975,7 +944,7 @@ F 3 "" H 9550 5450 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L CONN_2 P8
+L ledboard-rescue:CONN_2 P8
 U 1 1 55ECD91D
 P 10250 5450
 F 0 "P8" V 10200 5450 40  0000 C CNN
@@ -986,7 +955,7 @@ F 3 "" H 10250 5450 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L +12V #PWR034
+L power:+12V #PWR034
 U 1 1 55ECD923
 P 10350 5100
 F 0 "#PWR034" H 10350 5050 20  0001 C CNN
@@ -997,7 +966,7 @@ F 3 "" H 10350 5100 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C15
+L Device:C_Small C15
 U 1 1 55ECD929
 P 10250 5100
 F 0 "C15" V 10250 4900 50  0000 L CNN
@@ -1008,7 +977,7 @@ F 3 "" H 10250 5100 60  0000 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L AGND #PWR035
+L ledboard-rescue:AGND #PWR035
 U 1 1 55ECD92F
 P 6550 5750
 F 0 "#PWR035" H 6550 5750 40  0001 C CNN
@@ -1019,7 +988,7 @@ F 3 "" H 6550 5750 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L +12V #PWR036
+L power:+12V #PWR036
 U 1 1 55ECD935
 P 6750 5200
 F 0 "#PWR036" H 6750 5150 20  0001 C CNN
@@ -1030,7 +999,7 @@ F 3 "" H 6750 5200 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L AGND #PWR037
+L ledboard-rescue:AGND #PWR037
 U 1 1 55ECD93B
 P 6750 5550
 F 0 "#PWR037" H 6750 5550 40  0001 C CNN
@@ -1041,7 +1010,7 @@ F 3 "" H 6750 5550 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L AGND #PWR038
+L ledboard-rescue:AGND #PWR038
 U 1 1 55ECD941
 P 7050 5550
 F 0 "#PWR038" H 7050 5550 40  0001 C CNN
@@ -1052,7 +1021,7 @@ F 3 "" H 7050 5550 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C12
+L Device:C_Small C12
 U 1 1 55ECD947
 P 7050 5350
 F 0 "C12" H 7060 5420 50  0000 L CNN
@@ -1063,7 +1032,7 @@ F 3 "" H 7050 5350 60  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L C_Small C9
+L Device:C_Small C9
 U 1 1 55ECD94D
 P 6750 5350
 F 0 "C9" H 6900 5450 50  0000 L CNN
@@ -1074,7 +1043,7 @@ F 3 "" H 6750 5350 60  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L FAN3100TSX U5
+L ledboard-rescue:FAN3100TSX U5
 U 1 1 55ECD953
 P 7800 6000
 F 0 "U5" H 7650 6050 60  0000 C CNN
@@ -1089,7 +1058,7 @@ _PWM_DIMMER3
 Text Label 6700 5850 0    60   ~ 0
 PWM_DIMMER3
 $Comp
-L AGND #PWR039
+L ledboard-rescue:AGND #PWR039
 U 1 1 55ECD95B
 P 8450 5850
 F 0 "#PWR039" H 8450 5850 40  0001 C CNN
@@ -1100,7 +1069,7 @@ F 3 "" H 8450 5850 60  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L CAPAPOL C16
+L ledboard-rescue:CAPAPOL C16
 U 1 1 55ED0C73
 P 8800 1150
 F 0 "C16" V 8850 1250 50  0000 L CNN
@@ -1111,7 +1080,7 @@ F 3 "" H 8800 1150 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L AGND #PWR040
+L ledboard-rescue:AGND #PWR040
 U 1 1 55ED1558
 P 8600 1150
 F 0 "#PWR040" H 8600 1150 40  0001 C CNN
@@ -1122,7 +1091,7 @@ F 3 "" H 8600 1150 60  0001 C CNN
 	0    1    1    0   
 $EndComp
 $Comp
-L LM1117-3.3 U1
+L ledboard-rescue:LM1117-3.3 U1
 U 1 1 55ED450E
 P 2800 1650
 F 0 "U1" H 3150 1850 60  0000 C CNN
@@ -1133,7 +1102,7 @@ F 3 "" H 2800 1650 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L AGND #PWR041
+L ledboard-rescue:AGND #PWR041
 U 1 1 55ED4770
 P 2850 1600
 F 0 "#PWR041" H 2850 1600 40  0001 C CNN
@@ -1144,7 +1113,7 @@ F 3 "" H 2850 1600 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L +3.3V #PWR042
+L power:+3.3V #PWR042
 U 1 1 55ED49D0
 P 3750 1350
 F 0 "#PWR042" H 3750 1310 30  0001 C CNN
@@ -1155,7 +1124,7 @@ F 3 "" H 3750 1350 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L C_Small C2
+L Device:C_Small C2
 U 1 1 55ED5217
 P 2100 1500
 F 0 "C2" H 2110 1570 50  0000 L CNN
@@ -1166,7 +1135,7 @@ F 3 "" H 2100 1500 60  0000 C CNN
 	-1   0    0    1   
 $EndComp
 $Comp
-L CAPAPOL C1
+L ledboard-rescue:CAPAPOL C1
 U 1 1 55ED52EA
 P 3750 1600
 F 0 "C1" V 3800 1700 50  0000 L CNN
@@ -1177,7 +1146,7 @@ F 3 "" H 3750 1600 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L AGND #PWR043
+L ledboard-rescue:AGND #PWR043
 U 1 1 55ED54BE
 P 2100 1600
 F 0 "#PWR043" H 2100 1600 40  0001 C CNN
@@ -1188,7 +1157,7 @@ F 3 "" H 2100 1600 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L AGND #PWR044
+L ledboard-rescue:AGND #PWR044
 U 1 1 55ED5806
 P 3750 1800
 F 0 "#PWR044" H 3750 1800 40  0001 C CNN
@@ -1201,7 +1170,7 @@ $EndComp
 Text Notes 4000 2650 0    60   ~ 0
 Linear or DC/DC converter
 $Comp
-L LM7805CT U6
+L ledboard-rescue:LM7805CT U6
 U 1 1 55ED69F9
 P 2850 2050
 F 0 "U6" H 2650 2250 40  0000 C CNN
@@ -1212,7 +1181,7 @@ F 3 "" H 2850 2050 60  0000 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L AGND #PWR045
+L ledboard-rescue:AGND #PWR045
 U 1 1 55ED70CF
 P 2850 2300
 F 0 "#PWR045" H 2850 2300 40  0001 C CNN
@@ -1223,7 +1192,7 @@ F 3 "" H 2850 2300 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R2
+L Device:R R2
 U 1 1 55ED8FD5
 P 8400 1850
 F 0 "R2" V 8500 1850 50  0000 C CNN
@@ -1238,7 +1207,7 @@ WS23812B_DO
 Text Label 1900 4150 0    60   ~ 0
 WS23812B_DO
 $Comp
-L R R1
+L Device:R R1
 U 1 1 55ED9C53
 P 1400 4350
 F 0 "R1" V 1450 4500 50  0000 C CNN
@@ -1249,7 +1218,7 @@ F 3 "" H 1400 4350 60  0001 C CNN
 	0    -1   -1   0   
 $EndComp
 $Comp
-L +3.3V #PWR046
+L power:+3.3V #PWR046
 U 1 1 55ED9F69
 P 1050 4350
 F 0 "#PWR046" H 1050 4310 30  0001 C CNN
@@ -1260,7 +1229,7 @@ F 3 "" H 1050 4350 60  0001 C CNN
 	0    -1   1    0   
 $EndComp
 $Comp
-L D D?
+L Device:D D?
 U 1 1 55EDB597
 P 1200 1100
 F 0 "D?" H 1200 1200 50  0000 C CNN
@@ -1273,7 +1242,7 @@ $EndComp
 Text Label 900  1100 0    60   ~ 0
 VIN
 $Comp
-L +12V #PWR047
+L power:+12V #PWR047
 U 1 1 55EDC751
 P 4450 1150
 F 0 "#PWR047" H 4450 1100 20  0001 C CNN
@@ -1284,7 +1253,7 @@ F 3 "" H 4450 1150 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R?
+L Device:R R?
 U 1 1 55EDC8DD
 P 4450 1300
 F 0 "R?" V 4550 1300 50  0000 C CNN
@@ -1295,7 +1264,7 @@ F 3 "" H 4450 1300 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L R R?
+L Device:R R?
 U 1 1 55EDD0A4
 P 4450 1700
 F 0 "R?" V 4550 1700 50  0000 C CNN
@@ -1306,7 +1275,7 @@ F 3 "" H 4450 1700 60  0001 C CNN
 	1    0    0    -1  
 $EndComp
 $Comp
-L AGND #PWR048
+L ledboard-rescue:AGND #PWR048
 U 1 1 55EDD21B
 P 4450 1850
 F 0 "#PWR048" H 4450 1850 40  0001 C CNN
@@ -1325,7 +1294,7 @@ Wire Notes Line
 Wire Notes Line
 	5300 2700 750  2700
 Wire Wire Line
-	1500 1400 2300 1400
+	1500 1400 1600 1400
 Wire Wire Line
 	1500 1400 1500 1550
 Wire Wire Line
@@ -1351,7 +1320,7 @@ Wire Wire Line
 Wire Wire Line
 	4700 3950 4350 3950
 Wire Wire Line
-	4700 3400 4700 3950
+	4700 3400 4700 3550
 Wire Wire Line
 	2550 4050 1850 4050
 Wire Wire Line
@@ -1371,7 +1340,7 @@ Wire Notes Line
 Wire Notes Line
 	7850 800  6550 800 
 Wire Wire Line
-	4350 4450 5950 4450
+	4350 4450 5750 4450
 Wire Wire Line
 	2550 3950 1050 3950
 Wire Wire Line
@@ -1385,9 +1354,9 @@ Wire Wire Line
 Wire Wire Line
 	1550 4550 1050 4550
 Wire Wire Line
-	4350 4650 5950 4650
+	4350 4650 4450 4650
 Wire Wire Line
-	4450 4650 4450 5100
+	4450 4650 4450 4850
 Wire Wire Line
 	4450 4850 4500 4850
 Connection ~ 4450 4650
@@ -1409,7 +1378,7 @@ Connection ~ 4450 4850
 Wire Wire Line
 	4350 4050 5300 4050
 Wire Wire Line
-	4350 4150 5950 4150
+	4350 4150 5550 4150
 Wire Wire Line
 	5550 4050 5550 4150
 Connection ~ 5550 4150
@@ -1455,7 +1424,7 @@ Wire Notes Line
 Wire Wire Line
 	1700 6600 1150 6600
 Wire Wire Line
-	1150 6600 1150 7300
+	1150 6600 1150 6950
 Wire Wire Line
 	1900 6950 1150 6950
 Connection ~ 1150 6950
@@ -1492,7 +1461,7 @@ Wire Notes Line
 Wire Wire Line
 	8750 2750 7600 2750
 Wire Wire Line
-	9050 2750 9250 2750
+	9050 2750 9100 2750
 Wire Wire Line
 	9550 3000 9550 2900
 Wire Wire Line
@@ -1525,7 +1494,7 @@ Wire Wire Line
 Wire Wire Line
 	7400 3300 6550 3300
 Wire Wire Line
-	6750 2750 7400 2750
+	6750 2750 7050 2750
 Wire Wire Line
 	7400 2750 7400 3200
 Connection ~ 7050 2750
@@ -1534,7 +1503,7 @@ Wire Wire Line
 Wire Wire Line
 	8750 3950 7600 3950
 Wire Wire Line
-	9050 3950 9250 3950
+	9050 3950 9100 3950
 Wire Wire Line
 	9550 4200 9550 4100
 Wire Wire Line
@@ -1559,14 +1528,14 @@ Wire Wire Line
 Wire Wire Line
 	7400 4500 6550 4500
 Wire Wire Line
-	6750 3950 7400 3950
+	6750 3950 7050 3950
 Wire Wire Line
 	7400 3950 7400 4400
 Connection ~ 7050 3950
 Wire Wire Line
 	8750 5200 7600 5200
 Wire Wire Line
-	9050 5200 9250 5200
+	9050 5200 9100 5200
 Wire Wire Line
 	9550 5450 9550 5350
 Wire Wire Line
@@ -1591,7 +1560,7 @@ Wire Wire Line
 Wire Wire Line
 	7400 5750 6550 5750
 Wire Wire Line
-	6750 5200 7400 5200
+	6750 5200 7050 5200
 Wire Wire Line
 	7400 5200 7400 5650
 Connection ~ 7050 5200
@@ -1604,13 +1573,12 @@ Wire Wire Line
 Wire Wire Line
 	1600 1900 1600 1950
 Connection ~ 2100 1400
-Connection ~ 3650 350 
 Wire Wire Line
-	2300 1100 2300 2000
+	2300 1100 2300 1400
 Wire Wire Line
 	3450 2000 3250 2000
 Wire Wire Line
-	3450 1100 3450 2000
+	3450 1100 3450 1200
 Connection ~ 3450 1200
 Wire Wire Line
 	3750 1400 3450 1400
@@ -1636,10 +1604,48 @@ Connection ~ 1750 1400
 Wire Wire Line
 	1050 1100 800  1100
 Wire Wire Line
-	4450 1550 4450 1450
+	4450 1550 4450 1500
 Wire Wire Line
 	4450 1500 5050 1500
 Connection ~ 4450 1500
 Text Label 4650 1500 0    60   ~ 0
 VIN_DIV
+Wire Wire Line
+	4450 4650 5950 4650
+Wire Wire Line
+	4450 4850 4450 5100
+Wire Wire Line
+	5550 4150 5950 4150
+Wire Wire Line
+	5750 4450 5950 4450
+Wire Wire Line
+	1150 6950 1150 7300
+Wire Wire Line
+	9100 2750 9250 2750
+Wire Wire Line
+	7050 2750 7400 2750
+Wire Wire Line
+	9100 3950 9250 3950
+Wire Wire Line
+	7050 3950 7400 3950
+Wire Wire Line
+	9100 5200 9250 5200
+Wire Wire Line
+	7050 5200 7400 5200
+Wire Wire Line
+	4700 3550 4700 3950
+Wire Wire Line
+	1600 1400 1750 1400
+Wire Wire Line
+	2100 1400 2300 1400
+Wire Wire Line
+	3450 1200 3450 1400
+Wire Wire Line
+	3450 1400 3450 2000
+Wire Wire Line
+	2300 1400 2300 2000
+Wire Wire Line
+	1750 1400 2100 1400
+Wire Wire Line
+	4450 1500 4450 1450
 $EndSCHEMATC
