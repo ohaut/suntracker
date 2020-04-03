@@ -4,6 +4,9 @@
 void polarToVector(double azimuth, double zenith, double r, double *v) {
     double cosZ, cosA, sinZ, sinA;
 
+    azimuth = deg2rad(azimuth);
+    zenith = deg2rad(zenith);
+
     cosZ = cos(zenith); sinZ = sin(zenith);
     cosA = cos(azimuth); sinA = sin(azimuth);
     
@@ -21,10 +24,11 @@ void normalizeVector(double *v) {
 }
 
 void normalToPolar(double *v, double *azimuth, double *zenith) {
-
+    double z;
     normalizeVector(v);
-    *zenith = acos(v[2]);
-    *azimuth = acos(v[1]/sin(*zenith));
+    z = acos(v[2]);
+    *zenith = rad2deg(z);
+    *azimuth = rad2deg(acos(v[1]/sin(z)));
 }
 
 double deg2rad(double deg) {
@@ -36,25 +40,21 @@ double rad2deg(double rad) {
 }
 
 void sunVector(heliostatInput *input, double *u) {
-    // r = -1 because it's pointing downwards, to the mirror
-    polarToVector(input->sunAzimuth, input->sunZenith, -1.0, u);
+    // r = 1 because it's pointing upwards, from the mirror
+    polarToVector(input->sunAzimuth, input->sunZenith, 1.0, u);
 }
 void rayVector(heliostatInput *input, double *u) {
-    // r = -1 because it's pointing downwards, to the mirror
-     polarToVector(input->rayAzimuth, input->rayZenith, 1.0, u);
+    // r = 1 because it's pointing upwards, to the mirror
+    polarToVector(input->rayAzimuth, input->rayZenith, 1.0, u);
 }
 
 void calculateMirrorNormal(double *u, double *w, double *mirror_n) {
   
-    double sqrt2 = sqrt(2.0);
-     // precalculate some common factors
-    double cf1 = u[0]*u[0] + u[1]*u[1] + u[2]*u[2] - u[0]*w[0] - u[1]*w[1] - u[2]*w[2];
-    double cf2 = (sqrt2 / sqrt(cf1)) /(2.0 * (u[0]-w[0]));
+    mirror_n[0] = u[0] + w[0];
+    mirror_n[1] = u[1] + w[1];
+    mirror_n[2] = u[2] + w[2];
 
-    // calculate the mirror normal
-    mirror_n[0] = (u[0]-w[0]) / sqrt(2*cf1);
-    mirror_n[1] = cf2 * (-u[0]*u[1] + u[1]*w[0] + u[0]*w[1] - w[0]*w[1]);
-    mirror_n[2] = cf2 * (-u[1]*u[2] + u[2]*w[0] + u[0]*w[2] - w[0]*w[2]);
+    normalizeVector(mirror_n);
 
 }
 
@@ -73,6 +73,6 @@ void helioCalculateMirror(heliostatInput *input, heliostatOutput *output) {
     calculateMirrorNormal(u, w, mirror_n);
     
     // convert the mirror normal to polar coordinates
-    normalToPolar(mirror_n, &output->mirrorPitch, &output->mirrorYaw);
+    normalToPolar(mirror_n, &output->mirrorYaw, &output->mirrorPitch);
     
 }
