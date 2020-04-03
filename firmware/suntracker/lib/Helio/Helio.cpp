@@ -1,11 +1,20 @@
 #include <math.h>
 #include "Helio.h"
 
+double _deg2rad(double deg) {
+    return deg * M_PI / 180.0;
+}
+
+double _rad2deg(double rad) {
+    return rad * 180.0 / M_PI;
+}
+
+
 void polarToVector(double azimuth, double zenith, double r, double *v) {
     double cosZ, cosA, sinZ, sinA;
 
-    azimuth = deg2rad(azimuth);
-    zenith = deg2rad(zenith);
+    azimuth = _deg2rad(azimuth);
+    zenith = _deg2rad(zenith);
 
     cosZ = cos(zenith); sinZ = sin(zenith);
     cosA = cos(azimuth); sinA = sin(azimuth);
@@ -27,16 +36,8 @@ void normalToPolar(double *v, double *azimuth, double *zenith) {
     double z;
     normalizeVector(v);
     z = acos(v[2]);
-    *zenith = rad2deg(z);
-    *azimuth = rad2deg(acos(v[1]/sin(z)));
-}
-
-double deg2rad(double deg) {
-    return deg * M_PI / 180.0;
-}
-
-double rad2deg(double rad) {
-    return rad * 180.0 / M_PI;
+    *zenith = _rad2deg(z);
+    *azimuth = _rad2deg(acos(v[1]/sin(z)));
 }
 
 void sunVector(heliostatInput *input, double *u) {

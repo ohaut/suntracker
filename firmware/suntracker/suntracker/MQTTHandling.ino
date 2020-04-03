@@ -4,8 +4,7 @@ extern OHAUTservice ohaut;
 
 void setDimmerAndPublish(int channel, int value) {
 
-    dimmers.setDimmer(channel, (float)value/100.0);
-
+  
     if(ohaut.mqtt->connected()) {
       char  pub_name[8];
       char  pub_data[6];
@@ -30,8 +29,7 @@ void dimmer_status(int led, byte* payload, unsigned int length) {
   memcpy(str, payload, length);
 
   String value(str);
-  dimmers.setDimmer(led, value.toFloat()/100.0);
-
+  
 }
 
 void sendMQTTStartupValuesOnce() {
@@ -54,9 +52,9 @@ void sendMQTTStartupValuesOnce() {
 void setupMQTTHandling(MQTTDevice* mqtt) {
 
     ohaut.mqtt->setHandler("led1",
-        [](byte *data, unsigned int length) {dimmer_status(0, data, length); });
+        [](byte *data, unsigned int length) { });
     ohaut.mqtt->setHandler("led2", 
-        [](byte *data, unsigned int length) {dimmer_status(1, data, length); });
+        [](byte *data, unsigned int length) { });
     ohaut.mqtt->setHandler("led3", 
-        [](byte *data, unsigned int length) {dimmer_status(2, data, length); });
+        [](byte *data, unsigned int length) { });
 }

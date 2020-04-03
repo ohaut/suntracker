@@ -1,5 +1,7 @@
 #include <ESP8266WebServer.h>
+#include <spa.h>
 #include "ray_global_defs.h"
+#include <Helio.h>
 
 ESP8266WebServer *web_server;
 
@@ -39,8 +41,41 @@ void handleStepMotor() {
 }
 
 
+void handleGetSun() {
+  char resp[500];
+  char date[50];
+  heliostatInput hIn;
+  heliostatOutput hOut;
+
+  hIn.rayAzimuth = -180.0;
+  hIn.rayZenith = 45;
+
+  spa_data *spa = getCalculatedSPA();
+  spa->azimuth-=180.0;
+  spa->zenith = 90-spa->zenith;
+  hIn.sunAzimuth = spa->azimuth;
+  hIn.sunZenith = spa->zenith;
+
+
+  helioCalculateMirror(&hIn, &hOut);
+
+  hOut.mirrorYaw = 180 - hOut.mirrorYaw;
+
+  sprintf(date, "%d/%d/%d %02d:%02d:%02d", spa->day, spa->month, spa->year, spa->hour, spa->minute, spa->second);
+  sprintf(resp, "{\t\"azimuth\":\t%.6f,\n"
+                 "\t\"zenith\":\t%.6f,\n"
+                 "\t\"date\":\t\"%s\",\n"
+                 "\t\"mirrorPitch\": %.6f,\n"
+                 "\t\"mirrorYaw\": %.6f\n"
+                 "}\n", spa->azimuth, spa->zenith, date, hOut.mirrorPitch, hOut.mirrorYaw);
+  web_server->send(200, "application/json", resp);
+
+}
+
 void setupHTTPApi(ESP8266WebServer *server) {
   web_server = server;
   server->on("/step", HTTP_GET,  handleStepMotor);
-
+  server->on("/sun", HTTP_GET,  handleGetSun);
 }
+
+

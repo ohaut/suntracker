@@ -1,7 +1,6 @@
 #include <unity.h>
 #include <Helio.h>
 
-//#ifdef UNIT_TEST
 
 #define pr 0.0001
 
@@ -154,8 +153,7 @@ void test_45_deg_sunray_direct() {
     TEST_ASSERT_DOUBLE_WITHIN(pr, 90.0, output.mirrorPitch);
 }
 
-int main( int argc, char **argv) {
-    UNITY_BEGIN();
+void test_helio() {
 
     RUN_TEST(test_normalize_vector);
     RUN_TEST(test_normalize_neg_vector);
@@ -170,8 +168,6 @@ int main( int argc, char **argv) {
     RUN_TEST(test_45_deg_sunray_mirror_normal);
     RUN_TEST(test_45_deg_sunray_45deg_ray);
     RUN_TEST(test_45_deg_sunray_direct);
-
-    UNITY_END();
 }
 
-//#endif
+
