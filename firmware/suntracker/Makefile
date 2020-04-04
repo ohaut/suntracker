@@ -13,9 +13,11 @@ lib/spa/spa.cpp:
 test: lib/spa/spa.h lib/spa/spa.cpp
 	platformio test
 
-
 run: lib/spa/spa.h lib/spa/spa.cpp
 	platformio run
+
+upload: lib/spa/spa.h lib/spa/spa.cpp
+	platformio run --target upload --upload-port $(upload_port)
 
 .PHONY: run test
 

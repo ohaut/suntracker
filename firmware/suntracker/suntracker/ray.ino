@@ -12,11 +12,8 @@
 #define DEVICE_TYPE "SUNTRACK"
 
 OHAUTservice ohaut;
-StepMotors motors;
-
-#define CALC_INTERVAL
-
-int nextCalcMillis = 0;
+Mirror mirror;
+MirrorCalc mirrorCalc;
 
 
 int led_pin = 13;
@@ -28,7 +25,7 @@ void setup(void){
 
     ohaut.set_led_pin(led_pin);
 
-    motors.setup();
+    mirror.setup();
 
     ohaut.on_config_defaults = [](ConfigMap *config) {
         config->set("mode", "lamp");
@@ -58,10 +55,12 @@ void setup(void){
     };
 
     ohaut.setup(DEVICE_TYPE, VERSION, "suntracker");
-    motors.enable();
+    mirror.zero();  
+    mirrorCalc.setOutputRay(-180.0, 10.0);
+    mirrorCalc.setPlatformOrientation(180.0);
 }
 
-
+extern bool timeSynchronizedViaNTP;
 
 void loop(void){
     ohaut.handle();
@@ -70,35 +69,11 @@ void loop(void){
         setupNTPOnce();
     }
 
-}
+    if (timeSynchronizedViaNTP) {
+        mirrorCalc.update();
+        mirror.setPitch(mirrorCalc.getPitch());
+        mirror.setYaw(mirrorCalc.getYaw());
+        mirror.update();
+    }
 
-
-spa_data *getCalculatedSPA() {
-    int result; 
-    static spa_data spa;
-    float min, sec;
-
-    memset(&spa, 0, sizeof(spa_data));
-
-    spa.year          = year();
-    spa.month         = month();
-    spa.day           = day();
-    spa.hour          = hour()-10;
-    spa.minute        = minute()-35;
-    spa.second        = second();
-    spa.timezone      = 0.0;
-    spa.delta_ut1     = 0;
-    spa.delta_t       = 67;
-    spa.longitude     = -3.7038;
-    spa.latitude      = 40.4118;
-    spa.elevation     = 667;
-    spa.pressure      = 942;
-    spa.temperature   = 20;
-    spa.slope         = 0;
-    spa.azm_rotation  = 0;
-    spa.atmos_refract = 0.5667;
-    spa.function      = SPA_ALL;
-
-    result = spa_calculate(&spa);
-    return &spa;
 }

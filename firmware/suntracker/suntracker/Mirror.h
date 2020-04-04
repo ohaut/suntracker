@@ -1,23 +1,28 @@
 #ifndef __MIRROR_H
 #define __MIRROR_H
 
+#include "StepMotors.h"
 
-#define STEP_DEGS_YAW 0.451
-#define STEP_DEGS_PITCH 0.9
+
 
 class Mirror {
 private:
-  double _pitch;
-  double _yaw;
+  StepMotors _motors;
+
+  int _steps_yaw, _steps_pitch;
+  int _desired_steps_yaw, _desired_steps_pitch;
+  double _yaw, _pitch;
 
   //Ticker update_ticker;
 public:
+  void update();
   void setup();
   void zero();
   void setPitch(double pitch);
   void setYaw(double yaw);
   void enable();
   void disable();
+  char *str();
 
 };
 

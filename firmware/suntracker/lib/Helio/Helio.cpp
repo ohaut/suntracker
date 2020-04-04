@@ -37,7 +37,7 @@ void normalToPolar(double *v, double *azimuth, double *zenith) {
     normalizeVector(v);
     z = acos(v[2]);
     *zenith = _rad2deg(z);
-    *azimuth = _rad2deg(acos(v[1]/sin(z)));
+    *azimuth = _rad2deg(asin(v[0]/sin(z)));
 }
 
 void sunVector(heliostatInput *input, double *u) {

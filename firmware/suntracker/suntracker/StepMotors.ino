@@ -37,7 +37,10 @@ void StepMotors::disable(){
 
 // https://www.allegromicro.com/-/media/Files/Datasheets/A3982-Datasheet.ashx
 // 1uS minimum pulse width for STEP, DIR 200ns BEFORE,  high, then low
-void StepMotors::steps(int motor, int dir, int amount){
+void StepMotors::steps(int motor, int amount){
+
+    int dir = amount>0 ? 1:0;
+    amount = amount>0 ? amount:-amount;
     digitalWrite(DIR_PINS[motor], dir);
     delayMicroseconds(200);
     for (int i=0; i<amount; i++) {

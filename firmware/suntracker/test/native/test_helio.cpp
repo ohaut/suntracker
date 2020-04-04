@@ -134,7 +134,7 @@ void test_45_deg_sunray_45deg_ray() {
 
     helioCalculateMirror(&input, &output);
 
-    TEST_ASSERT_DOUBLE_WITHIN(pr, 22.5, output.mirrorYaw);
+    TEST_ASSERT_DOUBLE_WITHIN(pr, -22.5, output.mirrorYaw);
     TEST_ASSERT_DOUBLE_WITHIN(pr, 90.0, output.mirrorPitch);
 }
 
@@ -149,7 +149,7 @@ void test_45_deg_sunray_direct() {
 
     helioCalculateMirror(&input, &output);
 
-    TEST_ASSERT_DOUBLE_WITHIN(pr, 90.0, output.mirrorYaw);
+    TEST_ASSERT_DOUBLE_WITHIN(pr, -90.0, output.mirrorYaw);
     TEST_ASSERT_DOUBLE_WITHIN(pr, 90.0, output.mirrorPitch);
 }
 

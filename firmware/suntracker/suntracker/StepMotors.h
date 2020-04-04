@@ -13,7 +13,7 @@ public:
   void disable(int motor);
   void enable();
   void disable();
-  void steps(int motor, int dir, int amount);
+  void steps(int motor, int amount);
 };
 
 #endif
