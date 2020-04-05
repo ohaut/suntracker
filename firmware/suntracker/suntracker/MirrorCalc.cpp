@@ -10,6 +10,7 @@
 
 
 void MirrorCalc::update(){
+#ifndef _NATIVE
     static int nextUpdate = 0;
     int now = millis();
 
@@ -17,6 +18,11 @@ void MirrorCalc::update(){
         nextUpdate = now + 2000;
         calcNow();
     }
+#else
+   static int m=10;
+   calcSym(m++);
+   m=m%2400;
+#endif
 };
 
 
